@@ -1,5 +1,5 @@
 import styles from './FichaCadastro.module.scss';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import FormularioContext from '../../hooks/FormularioContext';
 import { problemas, hipotese_escrita } from '../../api';
 
@@ -8,16 +8,29 @@ export const CadastroEtapa1 = () => {
   const [disgnosticoMedico, setDisgnosticoMedico] = useState(false);
   const { queixaData, handleQueixa } = useContext(FormularioContext);
 
+  const mostrarDados = () => {
+    console.log(queixaData);
+  }
+  useEffect(() => {
+    mostrarDados();
+  },[]);
 
-  const handleUpdateQueixa = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>) => {
+  const handleUpdateQueixa = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     handleQueixa({ ...queixaData, [name]: value });
+  }
+  
+  const handleUpdateQueixaSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    handleQueixa({ ...queixaData, [name]: (value == 'true') });
   }
 
   const handleDiagnosticoMedico = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const { value } = e.target;
     setDisgnosticoMedico(value == 'true');
   }
+
+
 
   return (
     <>
@@ -88,11 +101,24 @@ export const CadastroEtapa1 = () => {
 
           <div>
             <label>Retido?</label>
-            <select name="retido" defaultValue={'Selecione'}>
-              <option defaultValue={'Selecione'} disabled>Selecione</option>
-              <option value="true">Sim</option>
-              <option value="false">Não</option>
-            </select>
+              {/* <option  defaultValue={'Selecione'} disabled>Selecione</option> */}
+              
+              { queixaData.retido == true && (
+                <select name="retido" onChange={ handleUpdateQueixaSelect }>
+                  <option disabled>Selecione</option>
+                  <option defaultValue={'true'} value="true">Sim</option>
+                  <option value="false">Não</option>
+                  </select>
+              )}
+              
+              { queixaData.retido == false && (
+                <select name="retido" onChange={ handleUpdateQueixaSelect }>
+                  <option disabled>Selecione</option>
+                  <option value="true">Sim</option>
+                  <option defaultValue={'false'} value="false">Não</option>
+                  </select>
+              )}
+
           </div>
         </div>
 
