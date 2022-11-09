@@ -1,22 +1,49 @@
 import { createContext, useState } from 'react';
 
 interface IQueixa {
+  data: Date;
   escola: string;
   professor: string;
   aluno: string;
   ano: number;
   idade: number;
-  turno: string;
-  retido: boolean;
+  turno: 'Manhã' | 'Tarde';
+  retido: 'Sim' | 'Não';
   problema: number;
   hipotese_escrita: number;
-  diagnostico: boolean;
+  diagnostico: string;
   desc_diagnostico: string;
+  agressividade: number;
+  apatia: number;
+  falta_atencao: number;
+  agitacao: number;
+  leitura: number;
+  escrita: number;
+  compreensao_texto: number;
+  repertorio_numerico: number;
+  calculo: number;
+  memorizacao: number;
+  troca_fala: string;
+  impacto_fala: string;
+  troca_escrita: string;
+  adicao_letra: string;
+  omissao_letra: string;
+  audicao_compreensao: string;
+  atividades: string;
+  medida_escola: string;
+  participacao_familia: string;
+  relacao_familia: string;
+  obs_professor: string;
+  obs_escola: string;
 }
 
 interface IFormularioContext {
   queixaData: IQueixa;
-  handleQueixa(queixa: IQueixa): void; 
+  handleUpdateForm(
+    e: React.ChangeEvent<HTMLInputElement> 
+      | React.ChangeEvent<HTMLSelectElement>
+      | React.ChangeEvent<HTMLTextAreaElement>
+    ): void; 
 }
 
 const FormularioContext = createContext<IFormularioContext>({} as IFormularioContext);
@@ -24,12 +51,14 @@ const FormularioContext = createContext<IFormularioContext>({} as IFormularioCon
 const FormularioProvider = ({ children }: any) => {
   const [queixaData, setQueixaData] = useState<IQueixa>({} as IQueixa);
 
-  const handleQueixa = (queixa: IQueixa) => {
-    setQueixaData(queixa);
+  const handleUpdateForm = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setQueixaData({ ...queixaData, [name]: value });
+    console.log(queixaData);
   }
 
   return(
-    <FormularioContext.Provider value={{ queixaData, handleQueixa }}>
+    <FormularioContext.Provider value={{ queixaData, handleUpdateForm }}>
       {children}
     </FormularioContext.Provider>
   )

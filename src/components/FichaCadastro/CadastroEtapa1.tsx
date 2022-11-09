@@ -1,49 +1,36 @@
-import styles from './FichaCadastro.module.scss';
 import { useContext, useEffect, useState } from 'react';
 import FormularioContext from '../../hooks/FormularioContext';
 import { problemas, hipotese_escrita } from '../../api';
+import styles from './Styles.module.scss';
 
 export const CadastroEtapa1 = () => {
 
-  const [disgnosticoMedico, setDisgnosticoMedico] = useState(false);
-  const { queixaData, handleQueixa } = useContext(FormularioContext);
-
-  const mostrarDados = () => {
-    console.log(queixaData);
-  }
-  useEffect(() => {
-    mostrarDados();
-  },[]);
-
-  const handleUpdateQueixa = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    handleQueixa({ ...queixaData, [name]: value });
-  }
-  
-  const handleUpdateQueixaSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    handleQueixa({ ...queixaData, [name]: (value == 'true') });
-  }
-
-  const handleDiagnosticoMedico = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const { value } = e.target;
-    setDisgnosticoMedico(value == 'true');
-  }
-
-
+  const { queixaData, handleUpdateForm } = useContext(FormularioContext);
 
   return (
     <>
       <div className={styles.container}>
-        <div>
-          <label>Escola</label>
-          <input
-            type="text"
-            name="escola"
-            value={ queixaData.escola || '' }
-            onChange={ handleUpdateQueixa }
-            placeholder="Escola"
-          />
+        <div className={ `${styles.flexSpaceBetween} ${styles.flexLine1}`}>
+          <div>
+            <label>Data</label>
+            <input
+              type="date"
+              name="data"
+              value={ queixaData.data ? queixaData.data.toString() : '' }
+              onChange={ handleUpdateForm }
+              placeholder="Escola"
+            />
+          </div>
+          <div>
+            <label>Escola</label>
+            <input
+              type="text"
+              name="escola"
+              value={ queixaData.escola || '' }
+              onChange={ handleUpdateForm }
+              placeholder="Escola"
+            />
+          </div>
         </div>
 
         <div>
@@ -52,7 +39,7 @@ export const CadastroEtapa1 = () => {
             type="text"
             name="professor"
             value={ queixaData.professor || '' }
-            onChange={ handleUpdateQueixa }
+            onChange={ handleUpdateForm }
             placeholder="Professor(a)"
           />
         </div>
@@ -63,7 +50,7 @@ export const CadastroEtapa1 = () => {
             type="text"
             name="aluno"
             value={ queixaData.aluno || '' }
-            onChange={ handleUpdateQueixa }
+            onChange={ handleUpdateForm }
             placeholder="Aluno(a)"
           />
         </div>
@@ -75,7 +62,7 @@ export const CadastroEtapa1 = () => {
               type="text"
               name="ano"
               value={ queixaData.ano || '' }
-              onChange={ handleUpdateQueixa }
+              onChange={ handleUpdateForm }
               placeholder="Ano/Ciclo" />
           </div>
 
@@ -85,48 +72,46 @@ export const CadastroEtapa1 = () => {
               type="text"
               name="idade"
               value={ queixaData.idade || '' }
-              onChange={ handleUpdateQueixa }
+              onChange={ handleUpdateForm }
               placeholder="Idade" />
           </div>
 
           <div>
             <label>Turno</label>
-            <input
-              type="text"
-              name="turno"
-              value={ queixaData.turno || '' }
-              onChange={ handleUpdateQueixa }
-              placeholder="Turno" />
+            <select 
+                  name="turno" 
+                  value={ queixaData.turno ? queixaData.turno.toString() : 'Selecione' } 
+                  onChange={ handleUpdateForm }
+                >
+                  <option disabled>Selecione</option>
+                  <option value="Manhã">Manhã</option>
+                  <option value="Tarde">Tarde</option>
+                </select>
           </div>
 
           <div>
             <label>Retido?</label>
-              {/* <option  defaultValue={'Selecione'} disabled>Selecione</option> */}
-              
-              { queixaData.retido == true && (
-                <select name="retido" onChange={ handleUpdateQueixaSelect }>
+                <select 
+                  name="retido" 
+                  value={ queixaData.retido ? queixaData.retido.toString() : 'Selecione' } 
+                  onChange={ handleUpdateForm }
+                >
                   <option disabled>Selecione</option>
-                  <option defaultValue={'true'} value="true">Sim</option>
-                  <option value="false">Não</option>
-                  </select>
-              )}
-              
-              { queixaData.retido == false && (
-                <select name="retido" onChange={ handleUpdateQueixaSelect }>
-                  <option disabled>Selecione</option>
-                  <option value="true">Sim</option>
-                  <option defaultValue={'false'} value="false">Não</option>
-                  </select>
-              )}
-
+                  <option value="Sim">Sim</option>
+                  <option value="Não">Não</option>
+                </select>
           </div>
         </div>
 
-        <div className={styles.flexLine}>
+        <div className={ `${styles.flexSpaceBetween} ${styles.flexLine5}`}>
           <div>
             <label>O principal problema é </label>
-            <select name="problema" defaultValue={'Selecione'}>
-              <option defaultValue={'Selecione'} disabled>Selecione</option>
+            <select 
+              name="problema"
+              value={ queixaData.problema ? queixaData.problema : 'Selecione' } 
+              onChange={ handleUpdateForm }
+            >
+              <option disabled>Selecione</option>
 
               {problemas.map(problema => (
                 <option key={problema.id} value={problema.id}>{problema.nome}</option>
@@ -137,8 +122,12 @@ export const CadastroEtapa1 = () => {
 
           <div>
             <label>Qual a Hipótese de Escrita? </label>
-            <select name="hipotese_escrita" defaultValue={'Selecione'}>
-              <option defaultValue={'Selecione'} disabled>Selecione</option>
+            <select 
+              name="hipotese_escrita"
+              value={ queixaData.hipotese_escrita ? queixaData.hipotese_escrita.toString() : 'Selecione' } 
+              onChange={ handleUpdateForm }
+            >
+              <option disabled>Selecione</option>
 
               {hipotese_escrita.map(hipotese => (
                 <option key={hipotese.id} value={hipotese.id}>{hipotese.nome}</option>
@@ -151,21 +140,25 @@ export const CadastroEtapa1 = () => {
         <div>
           <div>
             <label>Possui algum diagnóstico médico, psicológico? </label>
-            <select name="diagnostico" defaultValue={'Selecione'} onChange={(e) => handleDiagnosticoMedico(e)}>
+            <select 
+              name="diagnostico"
+              value={ queixaData.diagnostico ? queixaData.diagnostico.toString() : 'Selecione' } 
+              onChange={ handleUpdateForm }
+            >
               <option defaultValue={'Selecione'} disabled>Selecione</option>
-              <option value="true">Sim</option>
-              <option value="false">Não</option>
+              <option value="1">Sim</option>
+              <option value="0">Não</option>
             </select>
           </div>
 
-          {disgnosticoMedico && (
+          {queixaData.diagnostico=="1" && (
             <div>
               <label>Qual?</label>
               <input 
                 type="text"
                 name="desc_diagnostico"
                 value={ queixaData.desc_diagnostico || '' }
-                onChange={ handleUpdateQueixa }              
+                onChange={ handleUpdateForm }              
                 placeholder="Descreva o diagnóstico"
               />
             </div>
@@ -173,7 +166,6 @@ export const CadastroEtapa1 = () => {
           }
 
         </div>
-
       </div>
     </>
   )

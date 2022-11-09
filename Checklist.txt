@@ -1,0 +1,5 @@
+[ ] - Mostrar os nomes dos campos na etapa 7 de confirmação
+[ ] - Mostrar a data no formato Br na etapa 7 de confirmação
+[ ] - Mostrar a data atual ao abrir o form
+[ ] - Estilizar
+[ ] - Subir para produção e validar com Anderson
