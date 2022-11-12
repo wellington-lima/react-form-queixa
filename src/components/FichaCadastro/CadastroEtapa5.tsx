@@ -10,8 +10,8 @@ export const CadastroEtapa5 = () => {
     <>
       <div className={styles.container}>
         <div className={ styles.containerEtapa5}>
-          <label>Participação da família na escola (reunião, eventos, processos educativos e etc)?</label>
-          <textarea rows={ 5 } cols={ 10 }
+          <span>Participação da família na escola (reunião, eventos, processos educativos e etc)?</span>
+          <textarea rows={ 8 } cols={ 10 }
             name="participacao_familia"
             value={queixaData.participacao_familia || ''}
             onChange={ handleUpdateForm }
@@ -20,8 +20,8 @@ export const CadastroEtapa5 = () => {
         </div>
 
         <div className={ styles.containerEtapa5}>
-          <label>Relação da família com a equipe escola (professor, coordenador, diretor e etc.) ?</label>
-          <textarea rows={ 5 } cols={ 10 }
+          <span>Relação da família com a equipe escola (professor, coordenador, diretor e etc.) ?</span>
+          <textarea rows={ 8 } cols={ 10 }
             name="relacao_familia"
             value={queixaData.relacao_familia || ''}
             onChange={ handleUpdateForm }

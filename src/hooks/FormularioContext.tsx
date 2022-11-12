@@ -43,7 +43,8 @@ interface IFormularioContext {
     e: React.ChangeEvent<HTMLInputElement> 
       | React.ChangeEvent<HTMLSelectElement>
       | React.ChangeEvent<HTMLTextAreaElement>
-    ): void; 
+    ): void;
+  setDataDefault(name: string, value: string): void
 }
 
 const FormularioContext = createContext<IFormularioContext>({} as IFormularioContext);
@@ -57,8 +58,13 @@ const FormularioProvider = ({ children }: any) => {
     console.log(queixaData);
   }
 
+  const setDataDefault = (name: string, value: string) => {
+    setQueixaData({ ...queixaData, [name]: value });
+    console.log(queixaData);
+  }
+
   return(
-    <FormularioContext.Provider value={{ queixaData, handleUpdateForm }}>
+    <FormularioContext.Provider value={{ queixaData, handleUpdateForm, setDataDefault }}>
       {children}
     </FormularioContext.Provider>
   )

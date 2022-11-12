@@ -9,9 +9,9 @@ export const CadastroEtapa6 = () => {
   return (
     <>
       <div className={styles.container}>
-        <div className={ styles.containerEtapa6}>
-          <label>Observações complementares do professor</label>
-          <textarea rows={15} cols={10}
+        <div className={ styles.containerEtapa5}>
+          <span>Observações complementares do professor</span>
+          <textarea rows={8} cols={10}
             name="obs_professor"
             value={queixaData.obs_professor || ''}
             onChange={ handleUpdateForm }
@@ -19,9 +19,9 @@ export const CadastroEtapa6 = () => {
           />
         </div>
 
-        <div className={ styles.containerEtapa6}>
-          <label>Outras Observações da Escola</label>
-          <textarea rows={15} cols={10}
+        <div className={ styles.containerEtapa5}>
+          <span>Outras Observações da Escola</span>
+          <textarea rows={8} cols={10}
             name="obs_escola"
             value={queixaData.obs_escola || ''}
             onChange={ handleUpdateForm }

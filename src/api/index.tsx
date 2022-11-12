@@ -24,3 +24,23 @@ export const usuarios = [
   { id: 1, nome: 'Anderson', admin: 1, password: '123456' },
   { id: 2, nome: 'Wellington', admin: 0, password: '123546' }
 ]
+
+export const descricaoProblema = (id: number) => {
+  const descricao = problemas.filter((valor) => valor.id == id)
+  return descricao[0].nome;
+}
+
+export const descricaoHipoteseEscrita = (id: number) => {
+  const descricao = hipotese_escrita.filter((valor) => valor.id == id)
+  return descricao[0].nome;
+}
+
+export const descricaoAvaliacao = (id: number) => {
+  const descricao = avaliacao.filter((valor) => valor.id == id)
+  return descricao[0].nome;
+}
+
+export const descricaoUsuarios = (id: number) => {
+  const descricao = usuarios.filter((valor) => valor.id == id)
+  return descricao[0].nome;
+}

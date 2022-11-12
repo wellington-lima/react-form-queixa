@@ -1,17 +1,42 @@
 @import '../styles/global';
 
 .container {
+  min-height: 97vh;
+  padding: 15px;
+  border-radius: 15px;
+  margin-top: 15px;
+  background-color: #3b4c6b;
+  
   header {
     margin-top: 20px;
     margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h2 {
+      color: #ffff;
+    }
+
   }
 }
 
-footer {
+header {
   margin-top: 20px;
 
   button {
     width: 100px;
+    height: 30px;
     margin: 5px;
+    border-radius: 5px;
+    background-color: #0057FF;
+    color: #ffff;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s background-color;
+
+    &:hover {
+      background-color: #0d4bc5;
+    }
   }
 }

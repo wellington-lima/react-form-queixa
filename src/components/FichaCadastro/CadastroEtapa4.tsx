@@ -27,7 +27,7 @@ export const CadastroEtapa4 = () => {
               <td>
                 Quais são as trocas na fala?
               </td>
-              <td>
+              <td className={ styles.colAvaliacao }>
                 <input 
                   type="text"
                   name="troca_fala"
@@ -41,7 +41,7 @@ export const CadastroEtapa4 = () => {
               <td>
                 A fala impacta na compreensão do professor e demais alunos?
               </td>
-              <td>
+              <td className={ styles.colAvaliacao }>
                 <input
                   type="text"
                   name="impacto_fala"
@@ -55,7 +55,7 @@ export const CadastroEtapa4 = () => {
               <td>
                 Quais as trocas na escrita?
               </td>
-              <td>
+              <td className={ styles.colAvaliacao }>
                 <input
                   type="text"
                   name="troca_escrita"
@@ -69,7 +69,7 @@ export const CadastroEtapa4 = () => {
               <td>
                 Adições de letras na escrita? Quais? Ex: Ventilador/Ventitilador
               </td>
-              <td>
+              <td className={ styles.colAvaliacao }>
                 <input
                   type="text"
                   name="adicao_letra"
@@ -83,7 +83,7 @@ export const CadastroEtapa4 = () => {
               <td>
                 Omissões de letras na escrita? Quais? Ex: Cadeira/cadera
               </td>
-              <td>
+              <td className={ styles.colAvaliacao }>
                 <input
                   type="text"
                   name="omissao_letra"
@@ -97,7 +97,7 @@ export const CadastroEtapa4 = () => {
               <td>
                 Ouve bem, compreende o que é dito?
               </td>
-              <td>
+              <td className={ styles.colAvaliacao }>
                 <input
                   type="text"
                   name="audicao_compreensao"
@@ -111,7 +111,7 @@ export const CadastroEtapa4 = () => {
               <td>
                 Vai bem nas atividades da escola?
               </td>
-              <td>
+              <td className={ styles.colAvaliacao }>
                 <input
                   type="text"
                   name="atividades"
@@ -125,7 +125,7 @@ export const CadastroEtapa4 = () => {
               <td>
                 Houve alguma medida tomada por parte da escola?  Quais?
               </td>
-              <td>
+              <td className={ styles.colAvaliacao }>
                 <input
                   type="text"
                   name="medida_escola"

@@ -9,7 +9,7 @@ export const CadastroEtapa3 = () => {
   return (
     <>
       <div className={styles.container}>
-        <table>
+      <table className={ styles.table3 }>
           <thead>
             <tr>
               <th>2 - Dificuldade de aprendizagem</th>
@@ -21,7 +21,7 @@ export const CadastroEtapa3 = () => {
               <td>
                 Dificuldade na Leitura de textos simples
               </td>
-              <td>
+              <td className={ styles.colAvaliacao }>
                 <select 
                   name="leitura"
                   value={ queixaData.leitura ? queixaData.leitura : 'Selecione' }
@@ -42,7 +42,7 @@ export const CadastroEtapa3 = () => {
               <td>
                 Dificuldades na Escrita
               </td>
-              <td>
+              <td className={ styles.colAvaliacao }>
                 <select 
                   name="escrita"
                   value={ queixaData.escrita ? queixaData.escrita : 'Selecione' }
@@ -63,7 +63,7 @@ export const CadastroEtapa3 = () => {
               <td>
                 Dificuldade na Compreensão de textos simples
               </td>
-              <td>
+              <td className={ styles.colAvaliacao }>
                 <select 
                   name="compreensao_texto"
                   value={ queixaData.compreensao_texto ? queixaData.compreensao_texto : 'Selecione' }
@@ -83,7 +83,7 @@ export const CadastroEtapa3 = () => {
               <td>
                 Dificuldade com repertório numérico
               </td>
-              <td>
+              <td className={ styles.colAvaliacao }>
                 <select 
                   name="repertorio_numerico"
                   value={ queixaData.repertorio_numerico ? queixaData.repertorio_numerico : 'Selecione' }
@@ -103,7 +103,7 @@ export const CadastroEtapa3 = () => {
               <td>
                 Dificuldade com Cálculo Simples
               </td>
-              <td>
+              <td className={ styles.colAvaliacao }>
                 <select 
                   name="calculo"
                   value={ queixaData.calculo ? queixaData.calculo : 'Selecione' }
@@ -123,7 +123,7 @@ export const CadastroEtapa3 = () => {
               <td>
                 Dificuldade de Memorização
               </td>
-              <td>
+              <td className={ styles.colAvaliacao }>
                 <select 
                   name="memorizacao"
                   value={ queixaData.memorizacao ? queixaData.memorizacao : 'Selecione' }

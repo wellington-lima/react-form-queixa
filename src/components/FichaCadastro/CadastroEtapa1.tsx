@@ -1,12 +1,20 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import FormularioContext from '../../hooks/FormularioContext';
 import { problemas, hipotese_escrita } from '../../api';
+import { dataPadraoUS } from '../../utils/FuncoesData';
 import styles from './Styles.module.scss';
 
 export const CadastroEtapa1 = () => {
 
-  const { queixaData, handleUpdateForm } = useContext(FormularioContext);
+  const { queixaData, handleUpdateForm, setDataDefault } = useContext(FormularioContext);
 
+  const dataAtual = new Date().toLocaleDateString();
+
+  useEffect(() => {
+    if(!queixaData.data) 
+      setDataDefault("data", dataPadraoUS(dataAtual));
+  }, []);
+  
   return (
     <>
       <div className={styles.container}>
@@ -16,9 +24,8 @@ export const CadastroEtapa1 = () => {
             <input
               type="date"
               name="data"
-              value={ queixaData.data ? queixaData.data.toString() : '' }
+              value={ queixaData.data ? queixaData.data.toString() : dataPadraoUS(dataAtual) }
               onChange={ handleUpdateForm }
-              placeholder="Escola"
             />
           </div>
           <div>

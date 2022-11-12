@@ -6,18 +6,18 @@
   box-sizing: border-box;
   outline: 0;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 16px;
 }
 
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #d6dce6;
+  background-color: #151719;
 }
 
 label {
   font-size: 14px;
+  color: rgb(7, 7, 7);
 }
 
 a {
@@ -30,7 +30,13 @@ input[type=text], [type=email], [type=password], [type=date], select {
   border: none;
   border-radius: 5px;
   padding: 5px;
-  margin-bottom: 10px;
+  margin: 1px 0 10px 0;
+  font-size: 14px;
+}
+
+::placeholder {
+  color: gray !important;
+  opacity: .5;
 }
 
 input:not([type=button]):focus {

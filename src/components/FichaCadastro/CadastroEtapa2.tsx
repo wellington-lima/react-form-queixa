@@ -23,7 +23,7 @@ export const CadastroEtapa2 = () => {
               <td>
                 Agressividade (relatar no verso  tipo de situação em que a agressividade está presente)
               </td>
-              <td>
+              <td className={ styles.colAvaliacao }>
                 <select 
                   name="agressividade"
                   value={ queixaData.agressividade ? queixaData.agressividade : 'Selecione' }
@@ -44,7 +44,7 @@ export const CadastroEtapa2 = () => {
               <td>
                 Apatia desinteresse (relatar no verso tipo de situação e onde se apresenta).
               </td>
-              <td>
+              <td className={ styles.colAvaliacao }>
                 <select 
                   name="apatia"
                   value={ queixaData.apatia ? queixaData.apatia : 'Selecione' }
@@ -65,7 +65,7 @@ export const CadastroEtapa2 = () => {
               <td>
                 Falta de atenção”desligado”
               </td>
-              <td>
+              <td className={ styles.colAvaliacao }>
                 <select 
                   name="falta_atencao"
                   value={ queixaData.falta_atencao ? queixaData.falta_atencao : 'Selecione' }
@@ -85,7 +85,7 @@ export const CadastroEtapa2 = () => {
               <td>
                 Agitação/Hiperatividade
               </td>
-              <td>
+              <td className={ styles.colAvaliacao }>
                 <select 
                   name="agitacao"
                   value={ queixaData.agitacao ? queixaData.agitacao : 'Selecione' }
