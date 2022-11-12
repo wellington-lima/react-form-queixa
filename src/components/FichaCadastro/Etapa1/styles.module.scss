@@ -1,0 +1,104 @@
+@import '../../../styles/global';
+
+.container {
+  min-width: 900px;
+  background-color: #cacaca;
+  border-radius: 10px;
+  padding: 15px;
+
+  .line1 {
+    display: flex;
+    justify-content: space-between;
+    
+    div {
+      width: 20%;
+    }
+
+    div:last-child {
+      width: 75%;
+    }
+  }
+
+  .flex {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    div {
+      margin-right: 15px;
+    }
+
+    div:last-child {
+      margin-right: 0px;
+    }
+  }
+ 
+  .flexLine5 {
+    display: flex;
+  
+    div {
+      width: 50%;
+      margin-right: 15px;
+      margin-top: 0;
+    }
+    
+    div:last-child {
+      margin-right: 0px;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+
+  .container {
+    min-width: 400px;
+    background-color: #cacaca;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  
+    .line1 {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      
+      div {
+        width: 100%;
+      }
+  
+      div:last-child {
+        width: 100%;
+      }
+    }
+
+    .flex {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      div {
+        margin: 0;
+      }
+    }
+   
+    .flexLine5 {
+      display: flex;
+      flex-direction: column;
+    
+      div {
+        width: 100%;
+        margin-right: 15px;
+        margin-top: 0;
+      }
+      
+      div:last-child {
+        width: 100%;
+        margin-right: 0px;
+      }
+    }
+  }
+  
+}

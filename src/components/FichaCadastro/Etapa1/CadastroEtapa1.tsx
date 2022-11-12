@@ -1,8 +1,8 @@
 import { useContext, useEffect } from 'react';
-import FormularioContext from '../../hooks/FormularioContext';
-import { problemas, hipotese_escrita } from '../../api';
-import { dataPadraoUS } from '../../utils/FuncoesData';
-import styles from './Styles.module.scss';
+import FormularioContext from '../../../hooks/FormularioContext';
+import { problemas, hipotese_escrita } from '../../../api';
+import { dataPadraoUS } from '../../../utils/FuncoesData';
+import styles from './styles.module.scss';
 
 export const CadastroEtapa1 = () => {
 
@@ -18,7 +18,7 @@ export const CadastroEtapa1 = () => {
   return (
     <>
       <div className={styles.container}>
-        <div className={ `${styles.flexSpaceBetween} ${styles.flexLine1}`}>
+        <div className={styles.line1}>
           <div>
             <label>Data</label>
             <input
@@ -28,6 +28,7 @@ export const CadastroEtapa1 = () => {
               onChange={ handleUpdateForm }
             />
           </div>
+
           <div>
             <label>Escola</label>
             <input
@@ -110,7 +111,7 @@ export const CadastroEtapa1 = () => {
           </div>
         </div>
 
-        <div className={ `${styles.flexSpaceBetween} ${styles.flexLine5}`}>
+        <div className={ styles.flexLine5 }>
           <div>
             <label>O principal problema é </label>
             <select 

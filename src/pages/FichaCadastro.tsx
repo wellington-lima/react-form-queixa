@@ -10,9 +10,12 @@ import {
 } from '../components/FichaCadastro/';
 import ToastLoadingContext from '../hooks/toastLoading';
 import ToastContext from '../hooks/toast';
-
 import { useSessionCounter } from '../hooks/useSessionCounter';
-import ficha from './Styles.module.scss';
+import { AiOutlineForm } from 'react-icons/ai';
+import { BiChevronsLeft, BiChevronsRight } from 'react-icons/bi';
+import { RiSave3Line } from 'react-icons/ri';
+
+import styles from './styles.module.scss';
 
 export const FichaCadastro = () => {
 
@@ -25,8 +28,8 @@ export const FichaCadastro = () => {
 
     setTimeout(() => {
       setIsLoadingVisible(false);
-    },3000);
-    
+    }, 3000);
+
     setTimeout(() => {
       addToast({
         type: "success",
@@ -37,22 +40,29 @@ export const FichaCadastro = () => {
 
       setTimeout(() => {
         decrement(6);
-      },3000)
-    },3000);
+      }, 3000)
+    }, 3000);
   }
 
   return (
     <>
-      <div className={ficha.container}>
+      <div className={styles.container}>
         <header>
-          <h2>Ficha de Queixa Ensino Fundamental</h2>
-          <div>
-            {session != 1 && <button onClick={() => decrement(1)}>Voltar</button> }
-            {session != 7 && <button onClick={() => increment(1)}>Avançar</button> }
-            {session == 7 && <button onClick={salvarQueixa}>Salvar</button> }
+          <div className={styles.divTitulo}>
+            <AiOutlineForm />
+            <h2>Ficha de Queixa Ensino Fundamental</h2>
+          </div>
+
+          <div className={styles.divBotoes}>
+            {session != 1 && <button className={styles.btnAcao} onClick={() => decrement(1)}><BiChevronsLeft size={18} />&nbsp;Voltar</button>}
+            {session != 7 && <button className={styles.btnAcao} onClick={() => increment(1)}>Avançar&nbsp;<BiChevronsRight size={18} /></button>}
+            {session == 7 && <button className={styles.btnAcao} onClick={salvarQueixa}><RiSave3Line />&nbsp;Salvar</button>}
           </div>
         </header>
 
+        <div className={styles.divEtapa}>
+          <span>Etapa {session} de 7</span>
+        </div>
         <hr />
         <br />
 

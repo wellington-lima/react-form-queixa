@@ -1,0 +1,107 @@
+@import '../../../styles/global';
+
+.container {
+  min-width: 900px;
+  height: 75vh;
+  background-color: #cacaca;
+  border-radius: 10px;
+  padding: 15px;
+
+  .divTitulo {
+    height: 50px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid white;
+
+    div {
+      width: 70%;
+    }
+    
+    div:last-child {
+      width: 30%;
+      text-align: center;
+    }
+    span {
+      font-weight: bold;
+    }
+  }
+
+  .rowQuestao{
+    height: 65px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 1px solid white;
+    
+
+    div{
+      width: 70%;
+      margin-left: 10px;
+    }
+
+    div:last-child{
+      width: 30%;
+
+      select{
+        margin: 0px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+
+  .container {
+    min-width: 400px;
+    height: 100vh;
+    background-color: #cacaca;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+
+    .divTitulo {
+      height: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      align-content: center;
+      justify-content: center;
+
+      div {
+        width: 100%;
+        display: flex;
+        align-content: center;
+
+        span{
+          width: 100%;
+          text-align: center;
+        }
+      }
+
+      div:last-child{
+        display: none;
+      }
+
+    }
+
+    .rowQuestao{
+      display: flex;
+      flex-direction: column;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      border-bottom: none;
+  
+      div{
+        width: 100%;
+      }
+
+      div:last-child{
+        height: auto;
+        width: 100%;
+      }
+    }
+  }
+}

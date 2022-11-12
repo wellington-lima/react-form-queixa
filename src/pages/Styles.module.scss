@@ -6,37 +6,80 @@
   border-radius: 15px;
   margin-top: 15px;
   background-color: #3b4c6b;
-  
+
   header {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    .divTitulo {
+      display: flex;
+      align-items: center;
+
+      svg {
+        color: #ffff;
+        font-size: 30px;
+        margin-right: 10px;
+      }
+    }
 
     h2 {
       color: #ffff;
     }
 
+    margin-top: 20px;
+
+    button {
+      width: 100px;
+      height: 30px;
+      margin: 5px;
+      padding: 0;
+      border-radius: 5px;
+      background-color: #0057FF;
+      color: #ffff;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s background-color;
+
+      &:hover {
+        background-color: #0d4bc5;
+      }
+    }
+
+    .divBotoes{
+      display: flex;
+    }
+
+    .btnAcao {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .divEtapa {
+    display: flex;
+    justify-content: end;
+    color: rgb(187, 184, 184);
+    font-size: 12px;
+    padding-right: 10px;
   }
 }
 
-header {
-  margin-top: 20px;
+@media screen and (max-width: 500px) {
+  .container {
+    header {
+      display: flex;
+      flex-direction: column;
 
-  button {
-    width: 100px;
-    height: 30px;
-    margin: 5px;
-    border-radius: 5px;
-    background-color: #0057FF;
-    color: #ffff;
-    border: none;
-    cursor: pointer;
-    transition: 0.3s background-color;
-
-    &:hover {
-      background-color: #0d4bc5;
+      h2 {
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
     }
+
   }
 }

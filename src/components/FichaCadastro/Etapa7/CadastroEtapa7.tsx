@@ -1,15 +1,13 @@
 import { useContext } from 'react';
-import FormularioContext from '../../hooks/FormularioContext';
-import { descricaoProblema, descricaoHipoteseEscrita, descricaoAvaliacao } from '../../api';
-import { dataPadraoBr } from '../../utils/FuncoesData';
+import FormularioContext from '../../../hooks/FormularioContext';
+import { descricaoProblema, descricaoHipoteseEscrita, descricaoAvaliacao } from '../../../api';
+import { dataPadraoBr } from '../../../utils/FuncoesData';
 
-import styles from './Styles.module.scss';
+import styles from './styles.module.scss';
 
 export const CadastroEtapa7 = () => {
 
   const { queixaData } = useContext(FormularioContext);
-  const dataCadastro = new Date(queixaData.data);
-  
 
   return (
     <>
